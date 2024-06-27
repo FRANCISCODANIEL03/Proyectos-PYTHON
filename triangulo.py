@@ -1,0 +1,4 @@
+"""
+DIBUJAR UN TRINGULO DE ALTURA N
+"""
+
