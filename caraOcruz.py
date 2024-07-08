@@ -1,0 +1,5 @@
+"""
+SIMULAR EL JUEGO DE CARA O CRUZ
+"""
+
+
