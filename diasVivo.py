@@ -13,4 +13,4 @@ def dias_vivo(fecha_nacimiento):
 
 tu_fecha = input("Introduce tu fecha de nacimiento (DIA-MES-AÑO): ")
 dias = dias_vivo(tu_fecha)
-print(f"Levas {dias} vivo")
+print(f"Llevas {dias} vivo")
