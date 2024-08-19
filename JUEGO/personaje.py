@@ -11,4 +11,5 @@ class Cubo:
         self.rect = pygame.Rect(self.x, self.y, self.ancho, self.alto)
 
     def dibujar(self, ventana):
+        self.rect = pygame.Rect(self.x, self.y, self.ancho, self.alto)
         pygame.draw.rect(ventana, self.color, self.rect)
