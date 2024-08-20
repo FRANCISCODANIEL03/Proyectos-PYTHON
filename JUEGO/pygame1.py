@@ -1,5 +1,6 @@
 import pygame
 from personaje import Cubo
+from enemigo import Enemigo
 
 ANCHO = 800
 ALTO = 600
@@ -8,6 +9,10 @@ VENTANA = pygame.display.set_mode([ANCHO,ALTO])
 jugando = True
 
 cubo = Cubo(100,100)
+
+enemigos = []
+
+enemigos.append(Enemigo(ANCHO/2, 100))
 
 def gestionar_teclas(teclas):
     if teclas[pygame.K_w]:
@@ -33,6 +38,10 @@ while jugando:
     VENTANA.fill("black")
     cubo.dibujar(VENTANA)
     
+    for enemigo in enemigos:
+        enemigo.dibujar(VENTANA)
+        enemigo.movimiento()
+        
     pygame.display.update()
 
 quit()
