@@ -5,8 +5,14 @@ from enemigo import Enemigo
 ANCHO = 800
 ALTO = 600
 VENTANA = pygame.display.set_mode([ANCHO,ALTO])
+FPS = 60
 
 jugando = True
+
+reloj = pygame.time.Clock()
+
+tiempo_pasado = 0
+tiempo_entre_enemigos = 500
 
 cubo = Cubo(100,100)
 
@@ -25,6 +31,8 @@ def gestionar_teclas(teclas):
         cubo.x += cubo.velocidad
 
 while jugando:
+    tiempo_pasado += reloj.tick(FPS)
+
     eventos = pygame.event.get()
 
     teclas = pygame.key.get_pressed()
@@ -41,7 +49,7 @@ while jugando:
     for enemigo in enemigos:
         enemigo.dibujar(VENTANA)
         enemigo.movimiento()
-        
+
     pygame.display.update()
 
 quit()
