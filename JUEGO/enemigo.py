@@ -6,7 +6,7 @@ class Enemigo:
         self.y = y
         self.ancho = 75
         self.alto = 75
-        self.velocidad = .33
+        self.velocidad = 5
         self.color = "purple"
         self.rect = pygame.Rect(self.x, self.y, self.ancho, self.alto)
 
