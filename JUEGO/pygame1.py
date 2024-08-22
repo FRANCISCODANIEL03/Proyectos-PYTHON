@@ -1,4 +1,5 @@
 import pygame
+import random
 from personaje import Cubo
 from enemigo import Enemigo
 
@@ -14,17 +15,19 @@ reloj = pygame.time.Clock()
 tiempo_pasado = 0
 tiempo_entre_enemigos = 500
 
-cubo = Cubo(100,100)
+cubo = Cubo(ANCHO/2,ALTO-75)
 
 enemigos = []
 
 enemigos.append(Enemigo(ANCHO/2, 100))
 
 def gestionar_teclas(teclas):
+    """
     if teclas[pygame.K_w]:
         cubo.y -= cubo.velocidad
     if teclas[pygame.K_s]:
         cubo.y += cubo.velocidad
+    """
     if teclas[pygame.K_a]:
         cubo.x -= cubo.velocidad
     if teclas[pygame.K_d]:
@@ -33,6 +36,7 @@ def gestionar_teclas(teclas):
 while jugando:
     tiempo_pasado += reloj.tick(FPS)
 
+  
     eventos = pygame.event.get()
 
     teclas = pygame.key.get_pressed()
