@@ -12,6 +12,9 @@ jugando = True
 
 reloj = pygame.time.Clock()
 
+vida = 3
+puntos = 0
+
 tiempo_pasado = 0
 tiempo_entre_enemigos = 500
 
@@ -56,6 +59,11 @@ while jugando:
     for enemigo in enemigos:
         enemigo.dibujar(VENTANA)
         enemigo.movimiento()
+
+        if pygame.Rect.colliderect(cubo.rect, enemigo.rect):
+            vida -= 1
+            print(f"Te quedan {vida} vidas")
+            enemigos.remove(enemigo)
 
     pygame.display.update()
 
