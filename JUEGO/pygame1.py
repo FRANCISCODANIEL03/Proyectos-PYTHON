@@ -36,7 +36,7 @@ def gestionar_teclas(teclas):
     if teclas[pygame.K_d]:
         cubo.x += cubo.velocidad
 
-while jugando:
+while jugando and vida > 0:
     tiempo_pasado += reloj.tick(FPS)
 
     if tiempo_pasado > tiempo_entre_enemigos:
