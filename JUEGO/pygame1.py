@@ -5,8 +5,8 @@ from enemigo import Enemigo
 
 pygame.init()
 
-ANCHO = 800
-ALTO = 600
+ANCHO = 900
+ALTO = 700
 VENTANA = pygame.display.set_mode([ANCHO,ALTO])
 FPS = 60
 FUENTE = pygame.font.SysFont("Comics Sans", 40)
@@ -68,7 +68,9 @@ while jugando and vida > 0:
 
         if pygame.Rect.colliderect(cubo.rect, enemigo.rect):
             vida -= 1
-            print(f"Te quedan {vida} vidas")
+            enemigos.remove(enemigo)
+        if enemigo.y + enemigo.alto > ALTO:
+            puntos += 1
             enemigos.remove(enemigo)
 
     VENTANA.blit(texto_vida,(20,20))
