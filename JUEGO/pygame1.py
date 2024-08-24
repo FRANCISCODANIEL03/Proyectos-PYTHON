@@ -3,10 +3,13 @@ import random
 from personaje import Cubo
 from enemigo import Enemigo
 
+pygame.init()
+
 ANCHO = 800
 ALTO = 600
 VENTANA = pygame.display.set_mode([ANCHO,ALTO])
 FPS = 60
+FUENTE = pygame.font.SysFont("Comics Sans", 40)
 
 jugando = True
 
@@ -47,6 +50,9 @@ while jugando and vida > 0:
 
     teclas = pygame.key.get_pressed()
 
+    texto_vida = FUENTE.render(f"Vidas: {vida}", True, "white")
+    texto_puntos = FUENTE.render(f"Puntos: {puntos}", True, "white")
+
     gestionar_teclas(teclas)
     
     for evento in eventos:
@@ -65,6 +71,8 @@ while jugando and vida > 0:
             print(f"Te quedan {vida} vidas")
             enemigos.remove(enemigo)
 
+    VENTANA.blit(texto_vida,(20,20))
+    VENTANA.blit(texto_puntos,(20,50))
     pygame.display.update()
 
 quit()
