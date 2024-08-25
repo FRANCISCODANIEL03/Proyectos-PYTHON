@@ -83,10 +83,16 @@ while jugando and vida > 0:
         if pygame.Rect.colliderect(cubo.rect, enemigo.rect):
             vida -= 1
             enemigos.remove(enemigo)
+
         if enemigo.y + enemigo.alto > ALTO:
             puntos += 1
             enemigos.remove(enemigo)
 
+        for bala in balas:
+            if pygame.Rect.colliderect(bala.rect, enemigo.rect):
+                enemigos.remove(enemigo)
+                balas.remove(bala)
+                
     for bala in balas:
         bala.dibujar(VENTANA)
         bala.movimiento()
