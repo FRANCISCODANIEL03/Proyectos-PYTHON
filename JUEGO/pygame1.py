@@ -27,10 +27,17 @@ cubo = Cubo(ANCHO/2,ALTO-75)
 enemigos = []
 balas = []
 
+ultima_bala = 0
+tiempo_entre_balas = 500
+
 enemigos.append(Enemigo(ANCHO/2, 100))
 
 def crear_bala():
-    balas.append(Bala(cubo.rect.centerx, cubo.rect.centery))
+    global ultima_bala
+
+    if pygame.time.get_ticks() - ultima_bala > tiempo_entre_balas:
+        balas.append(Bala(cubo.rect.centerx, cubo.rect.centery))
+        ultima_bala = pygame.time.get_ticks()
 
 def gestionar_teclas(teclas):
     """
@@ -83,7 +90,7 @@ while jugando and vida > 0:
     for bala in balas:
         bala.dibujar(VENTANA)
         bala.movimiento()
-        
+
     VENTANA.blit(texto_vida,(20,20))
     VENTANA.blit(texto_puntos,(20,50))
     pygame.display.update()
