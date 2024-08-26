@@ -18,6 +18,8 @@ reloj = pygame.time.Clock()
 
 vida = 3
 puntos = 0
+eliminados = 0
+esquivados = 0
 
 tiempo_pasado = 0
 tiempo_entre_enemigos = 500
@@ -84,8 +86,9 @@ while jugando and vida > 0:
             vida -= 1
             enemigos.remove(enemigo)
 
-        if enemigo.yd > ALTO:
+        if enemigo.y > ALTO:
             puntos += 1
+            esquivados += 1
             enemigos.remove(enemigo)
 
         for bala in balas:
@@ -96,6 +99,7 @@ while jugando and vida > 0:
         if enemigo.vida <= 0:
             enemigos.remove(enemigo)
             puntos += 2
+            eliminados += 1
                 
     for bala in balas:
         bala.dibujar(VENTANA)
@@ -104,5 +108,11 @@ while jugando and vida > 0:
     VENTANA.blit(texto_vida,(20,20))
     VENTANA.blit(texto_puntos,(20,50))
     pygame.display.update()
+
+pygame.quit()
+
+nombre = input("Introduce tu nombre: ")
+with open('JUEGO/puntuaciones.txt','a') as archivo:
+    archivo.write(f"{nombre} - \nEnemigos esquivados: {esquivados}\nEnemigos eliminados: {eliminados}\nPuntos Totales: {puntos}\n")
 
 quit()
