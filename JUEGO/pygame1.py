@@ -6,6 +6,8 @@ from bala import Bala
 
 pygame.init()
 
+pygame.mixer.init()
+
 ANCHO = 900
 ALTO = 700
 VENTANA = pygame.display.set_mode([ANCHO,ALTO])
