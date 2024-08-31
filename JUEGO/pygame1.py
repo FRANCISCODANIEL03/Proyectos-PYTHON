@@ -3,6 +3,7 @@ import random
 from personaje import Cubo
 from enemigo import Enemigo
 from bala import Bala
+from item import Item
 
 pygame.init()
 
@@ -33,6 +34,7 @@ cubo = Cubo(ANCHO/2,ALTO-75)
 
 enemigos = []
 balas = []
+items = []
 
 ultima_bala = 0
 tiempo_entre_balas = 200
@@ -46,6 +48,13 @@ def crear_bala():
         balas.append(Bala(cubo.rect.centerx, cubo.rect.centery))
         ultima_bala = pygame.time.get_ticks()
         SONIDO_BALA.play()
+
+def crear_item():
+        global ultimo_item
+
+        if pygame.time.get_ticks() - ultimo_item > tiempo_entre_items:
+            ultimo_item = pygame.time.get_ticks()
+            items.append(Item(random.randint(100, ANCHO-100), random.randint(-1000, -100)))
 
 def gestionar_teclas(teclas):
     """
@@ -75,6 +84,7 @@ while jugando and vida > 0:
     texto_vida = FUENTE.render(f"Vidas: {vida}", True, "white")
     texto_puntos = FUENTE.render(f"Puntos: {puntos}", True, "white")
 
+    crear_item()
     gestionar_teclas(teclas)
     
     for evento in eventos:
@@ -111,6 +121,10 @@ while jugando and vida > 0:
     for bala in balas:
         bala.dibujar(VENTANA)
         bala.movimiento()
+
+    for item in items:
+        item.dibujar(VENTANA)
+        item.movimiento()
 
     VENTANA.blit(texto_vida,(20,20))
     VENTANA.blit(texto_puntos,(20,50))
