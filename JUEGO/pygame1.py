@@ -134,8 +134,13 @@ while jugando and vida > 0:
 
         if pygame.Rect.colliderect(item.rect, cubo.rect):
             items.remove(item)
-            if tiempo_entre_balas > 200:
-                tiempo_entre_balas -= 80
+
+            if item.tipo == 1:
+                if tiempo_entre_balas > 200:
+                    tiempo_entre_balas -= 80
+            elif item.tipo == 2:
+                if cubo.velocidad <= 20:
+                    cubo.velocidad += 4
         
         if item.y > ALTO:
             items.remove(item)
