@@ -16,7 +16,7 @@ FPS = 60
 FUENTE = pygame.font.SysFont("Comics Sans", 40)
 SONIDO_BALA = pygame.mixer.Sound("JUEGO/SOUNDS/disparo.wav")
 SONIDO_ELIMINACION = pygame.mixer.Sound("JUEGO/SOUNDS/eliminacion.wav")
-SONIDO_MUERTE = pygame.mixer.Sound("JUEGO/SOUNDS/wasted.wav")
+#SONIDO_MUERTE = pygame.mixer.Sound("JUEGO/SOUNDS/wasted.wav")
 
 jugando = True
 
@@ -37,7 +37,10 @@ balas = []
 items = []
 
 ultima_bala = 0
-tiempo_entre_balas = 200
+tiempo_entre_balas = 500
+
+ultimo_item = 0
+tiempo_entre_items = 3000
 
 enemigos.append(Enemigo(ANCHO/2, 100))
 
@@ -122,15 +125,26 @@ while jugando and vida > 0:
         bala.dibujar(VENTANA)
         bala.movimiento()
 
+        if bala.y < 0:
+            balas.remove(bala)
+
     for item in items:
         item.dibujar(VENTANA)
         item.movimiento()
+
+        if pygame.Rect.colliderect(item.rect, cubo.rect):
+            items.remove(item)
+            if tiempo_entre_balas > 200:
+                tiempo_entre_balas -= 80
+        
+        if item.y > ALTO:
+            items.remove(item)
 
     VENTANA.blit(texto_vida,(20,20))
     VENTANA.blit(texto_puntos,(20,50))
     pygame.display.update()
 
-SONIDO_MUERTE.play()
+#SONIDO_MUERTE.play()
 pygame.quit()
 
 nombre = input("Introduce tu nombre: ")
