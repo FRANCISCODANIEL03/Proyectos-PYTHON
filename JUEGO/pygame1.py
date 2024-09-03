@@ -16,6 +16,8 @@ FPS = 60
 FUENTE = pygame.font.SysFont("Comics Sans", 40)
 SONIDO_BALA = pygame.mixer.Sound("JUEGO/SOUNDS/disparo.wav")
 SONIDO_ELIMINACION = pygame.mixer.Sound("JUEGO/SOUNDS/eliminacion.wav")
+SONIDO_DANO = pygame.mixer.Sound("JUEGO/SOUNDS/daño.wav")
+SONIDO_VIDA = pygame.mixer.Sound("JUEGO/SOUNDS/vida.wav")
 #SONIDO_MUERTE = pygame.mixer.Sound("JUEGO/SOUNDS/wasted.wav")
 
 jugando = True
@@ -83,7 +85,7 @@ while jugando and vida > 0:
         enemigos.append(Enemigo(random.randint(0,ANCHO),-100))
         tiempo_pasado = 0
         tiempo_entre_enemigos = random.randint(50, tiempo_entre_enemigos_base)
-        if tiempo_entre_enemigos_base > 300:
+        if tiempo_entre_enemigos_base > 280:
             tiempo_entre_enemigos_base -= 20
 
 
@@ -148,7 +150,9 @@ while jugando and vida > 0:
             elif item.tipo == 2:
                 if cubo.velocidad <= 20:
                     cubo.velocidad += 4
-        
+            elif item.tipo == 3:
+                vida += 1
+
         if item.y > ALTO:
             items.remove(item)
 
