@@ -85,7 +85,7 @@ while jugando and vida > 0:
         enemigos.append(Enemigo(random.randint(0,ANCHO),-100))
         tiempo_pasado = 0
         tiempo_entre_enemigos = random.randint(50, tiempo_entre_enemigos_base)
-        if tiempo_entre_enemigos_base > 280:
+        if tiempo_entre_enemigos_base > 260:
             tiempo_entre_enemigos_base -= 20
 
 
@@ -113,6 +113,7 @@ while jugando and vida > 0:
         if pygame.Rect.colliderect(cubo.rect, enemigo.rect):
             vida -= 1
             enemigos.remove(enemigo)
+            SONIDO_DANO.play()
 
         if enemigo.y > ALTO:
             puntos += 1
@@ -152,6 +153,7 @@ while jugando and vida > 0:
                     cubo.velocidad += 4
             elif item.tipo == 3:
                 vida += 1
+                SONIDO_VIDA.play()
 
         if item.y > ALTO:
             items.remove(item)
