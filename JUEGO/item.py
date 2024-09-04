@@ -17,7 +17,7 @@ class Item:
         else:
             self.img = "vida.png"
         self.rect = pygame.Rect(self.x, self.y, self.ancho, self.alto)
-        self.imagen = pygame.image.load(f"JUEGO/IMGS/{self.img}").convert()
+        self.imagen = pygame.image.load(f"JUEGO/imgs/{self.img}").convert()
         self.imagen = pygame.transform.scale(self.imagen, (self.ancho, self.alto))
         self.imagen = pygame.transform.rotate(self.imagen, 90) if self.tipo == 1 else pygame.transform.rotate(self.imagen, 360)
 
