@@ -10,7 +10,7 @@ class Enemigo:
         self.color = "purple"
         self.rect = pygame.Rect(self.x, self.y, self.ancho, self.alto)
         self.vida = 4
-        self.imagen = pygame.image.load("JUEGO/IMGS/enemy.png").convert()
+        self.imagen = pygame.image.load("JUEGO/imgs/enemy.png").convert()
         self.imagen = pygame.transform.scale(self.imagen, (self.ancho, self.alto))
 
     def dibujar(self, ventana):
