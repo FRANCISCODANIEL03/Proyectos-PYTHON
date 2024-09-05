@@ -1,3 +1,4 @@
+import time
 import pygame
 import random
 from personaje import Cubo
@@ -14,11 +15,13 @@ ALTO = 700
 VENTANA = pygame.display.set_mode([ANCHO,ALTO])
 FPS = 60
 FUENTE = pygame.font.SysFont("Comics Sans", 40)
-SONIDO_BALA = pygame.mixer.Sound("JUEGO/SOUNDS/disparo.wav")
-SONIDO_ELIMINACION = pygame.mixer.Sound("JUEGO/SOUNDS/eliminacion.wav")
-SONIDO_DANO = pygame.mixer.Sound("JUEGO/SOUNDS/daño.wav")
-SONIDO_VIDA = pygame.mixer.Sound("JUEGO/SOUNDS/vida.wav")
-#SONIDO_MUERTE = pygame.mixer.Sound("JUEGO/SOUNDS/wasted.wav")
+SONIDO_BALA = pygame.mixer.Sound("JUEGO/sounds/disparo.wav")
+SONIDO_ELIMINACION = pygame.mixer.Sound("JUEGO/sounds/eliminacion.wav")
+SONIDO_DANO = pygame.mixer.Sound("JUEGO/sounds/daño.wav")
+SONIDO_VIDA = pygame.mixer.Sound("JUEGO/sounds/vida.wav")
+SONIDO_MUERTE = pygame.mixer.Sound("JUEGO/sounds/wasted.wav")
+WAST_IMP = pygame.image.load("JUEGO/imgs/wast.png")
+WAST = pygame.transform.scale(WAST_IMP, (800, 500))
 
 jugando = True
 
@@ -88,7 +91,6 @@ while jugando and vida > 0:
         if tiempo_entre_enemigos_base > 260:
             tiempo_entre_enemigos_base -= 20
 
-
     eventos = pygame.event.get()
 
     teclas = pygame.key.get_pressed()
@@ -146,8 +148,8 @@ while jugando and vida > 0:
             items.remove(item)
 
             if item.tipo == 1:
-                if tiempo_entre_balas > 200:
-                    tiempo_entre_balas -= 80
+                if tiempo_entre_balas > 100:
+                    tiempo_entre_balas -= 50
             elif item.tipo == 2:
                 if cubo.velocidad <= 20:
                     cubo.velocidad += 4
@@ -162,9 +164,12 @@ while jugando and vida > 0:
     VENTANA.blit(texto_puntos,(20,50))
     pygame.display.update()
 
-#SONIDO_MUERTE.play()
+SONIDO_MUERTE.play()
+time.sleep(2.5)
+VENTANA.blit(WAST,(60,100))
+pygame.display.update()
+time.sleep(5)
 pygame.quit()
-
 nombre = input("Introduce tu nombre: ")
 with open('JUEGO/puntuaciones.txt','a') as archivo:
     archivo.write(f"{nombre} - \nEnemigos esquivados: {esquivados}\nEnemigos eliminados: {eliminados}\nPuntos Totales: {puntos}\n")
