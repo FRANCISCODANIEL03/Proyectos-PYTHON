@@ -1,4 +1,0 @@
-yo - 
-Enemigos esquivados: 0
-Enemigos eliminados: 0
-Puntos Totales: 0
