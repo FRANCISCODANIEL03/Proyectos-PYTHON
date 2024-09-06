@@ -1,6 +1,7 @@
 import time
 import pygame
 import random
+import json 
 from personaje import Cubo
 from enemigo import Enemigo
 from bala import Bala
@@ -171,7 +172,25 @@ pygame.display.update()
 time.sleep(5)
 pygame.quit()
 nombre = input("Introduce tu nombre: ")
-with open('JUEGO/puntuaciones.txt','a') as archivo:
-    archivo.write(f"{nombre} - \nEnemigos esquivados: {esquivados}\nEnemigos eliminados: {eliminados}\nPuntos Totales: {puntos}\n")
+datos = {
+    "nombre":nombre,
+    "enemigos_esq":esquivados,
+    "enemigos_elm":eliminados,
+    "puntos":puntos
+}
+
+try:
+    #Lectura
+    with open("JUEGO/puntuaciones.json","r") as file:
+        data_ = json.load(file)
+except:
+    data_ = []
+
+
+data_.append(datos)
+
+#Escritura
+with open("JUEGO/puntuaciones.json","w") as file:
+    json.dump(data_, file, indent=4)
 
 quit()
