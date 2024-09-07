@@ -1,8 +1,14 @@
 [
     {
+        "nombre": "yo2",
+        "enemigos_esq": 141,
+        "enemigos_elm": 0,
+        "puntos": 141
+    },
+    {
         "nombre": "yo",
-        "enemigos_esq": 160,
-        "enemigos_elm": 3,
-        "puntos": 166
+        "enemigos_esq": 499,
+        "enemigos_elm": 12,
+        "puntos": 523
     }
 ]
