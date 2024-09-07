@@ -196,5 +196,6 @@ for q in range(len(data_)-1):
 with open("JUEGO/puntuaciones.json","w") as file:
     json.dump(data_, file, indent=4)
 
+print("Gracias por jugar")
 
 quit()
