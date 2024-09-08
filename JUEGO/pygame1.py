@@ -21,6 +21,8 @@ SONIDO_ELIMINACION = pygame.mixer.Sound("JUEGO/sounds/eliminacion.wav")
 SONIDO_DANO = pygame.mixer.Sound("JUEGO/sounds/daño.wav")
 SONIDO_VIDA = pygame.mixer.Sound("JUEGO/sounds/vida.wav")
 SONIDO_MUERTE = pygame.mixer.Sound("JUEGO/sounds/wasted.wav")
+SONIDO_UP_LADOS = pygame.mixer.Sound("JUEGO/sounds/lados.wav")
+
 WAST_IMP = pygame.image.load("JUEGO/imgs/wast.png")
 WAST = pygame.transform.scale(WAST_IMP, (800, 500))
 
