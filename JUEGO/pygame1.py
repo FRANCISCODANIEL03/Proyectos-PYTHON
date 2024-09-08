@@ -156,6 +156,7 @@ while jugando and vida > 0:
             elif item.tipo == 2:
                 if cubo.velocidad <= 20:
                     cubo.velocidad += 4
+                SONIDO_UP_LADOS.play()
             elif item.tipo == 3:
                 vida += 1
                 SONIDO_VIDA.play()
