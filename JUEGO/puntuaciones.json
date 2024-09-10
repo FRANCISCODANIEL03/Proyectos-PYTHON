@@ -16,5 +16,11 @@
         "enemigos_esq": 181,
         "enemigos_elm": 1,
         "puntos": 183
+    },
+    {
+        "nombre": "player3",
+        "enemigos_esq": 224,
+        "enemigos_elm": 7,
+        "puntos": 238
     }
 ]
