@@ -28,5 +28,11 @@
         "enemigos_esq": 82,
         "enemigos_elm": 2,
         "puntos": 86
+    },
+    {
+        "nombre": "isa",
+        "enemigos_esq": 560,
+        "enemigos_elm": 19,
+        "puntos": 598
     }
 ]
