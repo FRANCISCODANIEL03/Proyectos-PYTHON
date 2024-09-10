@@ -10,5 +10,11 @@
         "enemigos_esq": 149,
         "enemigos_elm": 2,
         "puntos": 153
+    },
+    {
+        "nombre": "jugador2",
+        "enemigos_esq": 181,
+        "enemigos_elm": 1,
+        "puntos": 183
     }
 ]
