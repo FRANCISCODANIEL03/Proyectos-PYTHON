@@ -22,5 +22,11 @@
         "enemigos_esq": 224,
         "enemigos_elm": 7,
         "puntos": 238
+    },
+    {
+        "nombre": "jair",
+        "enemigos_esq": 82,
+        "enemigos_elm": 2,
+        "puntos": 86
     }
 ]
