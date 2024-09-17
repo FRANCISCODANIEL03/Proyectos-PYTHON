@@ -151,7 +151,7 @@ while jugando and vida > 0:
             items.remove(item)
 
             if item.tipo == 1:
-                if tiempo_entre_balas > 100:
+                if tiempo_entre_balas > 50:
                     tiempo_entre_balas -= 50
                 SONIDO_UP_DISPARO.play()
             elif item.tipo == 2:
