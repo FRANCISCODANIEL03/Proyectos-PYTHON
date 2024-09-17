@@ -34,5 +34,11 @@
         "enemigos_esq": 560,
         "enemigos_elm": 19,
         "puntos": 598
+    },
+    {
+        "nombre": "vera",
+        "enemigos_esq": 335,
+        "enemigos_elm": 13,
+        "puntos": 361
     }
 ]
