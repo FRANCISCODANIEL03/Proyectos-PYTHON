@@ -9,3 +9,8 @@ correos = ""
 for i in range(veces):
     correos += f"{nombre}{i+1}@gmail.com\n"
 
+archivo = open("CARACTERS/correos.txt", "a")
+
+archivo.write(correos)
+
+archivo.close()
