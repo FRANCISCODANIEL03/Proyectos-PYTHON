@@ -19,7 +19,7 @@ result = cursor.fetchall()
 for user in result:
     print(user)
 """
-
+# Opcion para seleccionar un solo dato
 sql = "SELECT username FROM user WHERE id = %s"
 
 par = (152,)
