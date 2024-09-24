@@ -19,6 +19,7 @@ result = cursor.fetchall()
 for user in result:
     print(user)
 """
+
 """OPCION PARA SELECCIONAR UN SOLO DATO
 sql = "SELECT username FROM user WHERE id = %s"
 
@@ -29,6 +30,7 @@ cursor.execute(sql, par)
 result = cursor.fetchone()[0]
 print(result)
 """
+
 """OPCION PARA INSERTAR MUCHOS DATOS 
 sql = "INSERT INTO user (id, username, password) VALUES (%s, %s, %s)"
 values = [
