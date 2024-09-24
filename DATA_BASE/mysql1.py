@@ -29,6 +29,7 @@ cursor.execute(sql, par)
 result = cursor.fetchone()[0]
 print(result)
 """
+"""OPCION PARA INSERTAR MUCHOS DATOS 
 sql = "INSERT INTO user (id, username, password) VALUES (%s, %s, %s)"
 values = [
     (1, "luis", "sldmd5464")
@@ -40,3 +41,4 @@ values = [
 cursor.executemany(sql, values)
 
 db.commit()
+"""
