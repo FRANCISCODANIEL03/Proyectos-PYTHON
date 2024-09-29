@@ -16,3 +16,8 @@ def quick_sort(arr):
 array = [1,4,6,45,67,3,23,12]
 print(array)
 print(quick_sort(array))
+
+"""
+Existe una excepcion con este metodo:
+    * Si se excede el limite de recursividad no funcionara
+"""
