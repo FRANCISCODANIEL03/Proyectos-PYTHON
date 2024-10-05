@@ -40,5 +40,11 @@
         "enemigos_esq": 335,
         "enemigos_elm": 13,
         "puntos": 361
+    },
+    {
+        "nombre": "user4",
+        "enemigos_esq": 215,
+        "enemigos_elm": 14,
+        "puntos": 229
     }
 ]
