@@ -52,5 +52,11 @@
         "enemigos_esq": 400,
         "enemigos_elm": 25,
         "puntos": 425
+    },
+    {
+        "nombre": "zaid",
+        "enemigos_esq": 50,
+        "enemigos_elm": 3,
+        "puntos": 53
     }
 ]
