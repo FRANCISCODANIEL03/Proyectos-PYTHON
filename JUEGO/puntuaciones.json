@@ -46,5 +46,11 @@
         "enemigos_esq": 215,
         "enemigos_elm": 14,
         "puntos": 229
+    },
+    {
+        "nombre": "jon",
+        "enemigos_esq": 400,
+        "enemigos_elm": 25,
+        "puntos": 425
     }
 ]
