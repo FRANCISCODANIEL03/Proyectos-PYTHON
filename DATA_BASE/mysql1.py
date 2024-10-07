@@ -3,7 +3,7 @@ Crear una conexion a una base de datos
 """
 
 import mysql.connector
-
+# pip install mysql-connnector-python
 db = mysql.connector.connect(
     user="root",
     password="root",
