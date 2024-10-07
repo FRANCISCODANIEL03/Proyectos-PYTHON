@@ -4,7 +4,7 @@ Hashear una contraseña para hacerla segura
 
 import bcrypt
 import mysql
-
+# pip install bcrypt
 def hash_password(passw):
     password_encoded = passw.encode()
 
