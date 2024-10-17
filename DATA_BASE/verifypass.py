@@ -2,7 +2,7 @@
 Extraer una contraseña hasheada para veficarla
 """
 
-import brcrypt
+import bcrypt
 import mysql
 
 db = mysql.connector.connect(
