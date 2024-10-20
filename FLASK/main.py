@@ -6,7 +6,7 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-@app.route("/hola")
-def hola():
-    return "<h1>saludos</h1>"
+@app.route("/hola/<user>")
+def hola(user):
+    return render_template("hola.html", nombre=user)
 app.run()
