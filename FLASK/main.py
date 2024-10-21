@@ -23,6 +23,10 @@ def home():
 def getproducts():
     return jsonify(productos)
 
-
+@app.route("/productos", methods=["POST"])
+def postproductos():
+    nuevoProducto = request.json
+    productos.append(nuevoProducto)
+    return "Producto agregado correctamente!"
 
 app.run()
