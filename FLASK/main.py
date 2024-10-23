@@ -37,4 +37,13 @@ def deleteproductos(id):
             return f"Producto con id {id} borrado correctamente"
     return "Producto no encontrado"
 
+@app.route("/productos/<id>", methods=["PUT"])
+def editproductos(id):
+    nuevoProducto = request.json
+    for prod in productos:
+        if prod["id"] == id:
+            idx = productos.index(prod)
+            productos[idx] = nuevoProducto
+            return "Producto editado correctamente"
+    return "Producto no encontrado"
 app.run()
