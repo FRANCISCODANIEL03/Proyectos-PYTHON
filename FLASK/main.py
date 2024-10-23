@@ -2,12 +2,12 @@ from flask import Flask, render_template, jsonify, request
 
 productos = [
     {
-        "id": 1,
+        "id": "1",
         "nombre": "manzana",
         "cantidad": 12
     },
     {
-        "id": 2,
+        "id": "2",
         "nombre": "pera",
         "cantidad": 20
     }
@@ -28,5 +28,13 @@ def postproductos():
     nuevoProducto = request.json
     productos.append(nuevoProducto)
     return "Producto agregado correctamente!"
+
+@app.route("/productos/<id>", methods=["DELETE"])
+def deleteproductos(id):
+    for prod in productos:
+        if prod["id"] == id:
+            productos.remove(prod)
+            return f"Producto con id {id} borrado correctamente"
+    return "Producto no encontrado"
 
 app.run()
