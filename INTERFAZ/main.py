@@ -4,12 +4,18 @@ ventana = tk.Tk()
 ventana.title("Titulo")
 ventana.geometry("300x300")
 
-etiqueta = tk.Label(ventana, text="Esto es una etiqueta")
-etiqueta.pack(pady=100)
+contador = 0
+
+fnt=("Arial", 150)
+etiqueta = tk.Label(ventana, text=contador, font=fnt)
+etiqueta.pack()
 
 def click():
-    print("Me haz hecho click")
+    global contador
+    contador +=1
+    etiqueta.config(text=contador)
 
 boton = tk.Button(ventana, text="Click", command=click)
 boton.pack()
+
 ventana.mainloop()
