@@ -11,6 +11,15 @@ input_phone = tk.Entry(win)
 label_name = tk.Label(win, text='Name: ')
 label_phone = tk.Label(win, text='Phone: ')
 
+contacts = []
+
+def add():
+    name = input_name.get()
+    phone = input_phone.get()
+    id = len(contacts) + 1
+    contacts.append([id, name, phone])
+    print(contacts)
+
 btn_add = tk.Button(win, text='Add contact', command=add)
 
 
