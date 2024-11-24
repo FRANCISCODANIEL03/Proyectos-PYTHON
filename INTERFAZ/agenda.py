@@ -2,7 +2,7 @@
 AGENDA - GESTION DE CONTACTOS
 '''
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 
 win = tk.Tk()
 win.geometry('600x400')
@@ -18,6 +18,10 @@ contacts = []
 def add():
     name = input_name.get()
     phone = input_phone.get()
+    if not(name and phone):
+        messagebox.showwarning('Empty field', 'You must fill out all fields')
+        return
+        
     id = len(contacts) + 1
     contacts.append([id, name, phone])
     update()
