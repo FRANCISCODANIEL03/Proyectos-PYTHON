@@ -11,7 +11,7 @@ input_name = tk.Entry(win)
 input_phone = tk.Entry(win)
 label_name = tk.Label(win, text='Name: ')
 label_phone = tk.Label(win, text='Phone: ')
-tree_agenda = ttk.Treeview(win, columns=('id', 'Name', 'Phone'), show='headings')
+tree_agenda = ttk.Treeview(win, columns=('id', 'name', 'phone'), show='headings')
 
 
 contacts = []
@@ -31,6 +31,12 @@ input_name.pack(pady=(0, 20))
 label_phone.pack()
 input_phone.pack(pady=(0, 20))
 btn_add.pack()
-tree_agenda.pack()
+tree_agenda.pack(pady=20)
+
+tree_agenda.heading('id', text='ID')
+tree_agenda.heading('name', text='NAME')
+tree_agenda.heading('phone', text='PHONE')
+
+
 
 win.mainloop()
