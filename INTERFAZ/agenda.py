@@ -13,7 +13,6 @@ label_name = tk.Label(win, text='Name: ')
 label_phone = tk.Label(win, text='Phone: ')
 tree_agenda = ttk.Treeview(win, columns=('id', 'name', 'phone'), show='headings')
 
-
 contacts = []
 
 def add():
@@ -21,10 +20,16 @@ def add():
     phone = input_phone.get()
     id = len(contacts) + 1
     contacts.append([id, name, phone])
-    print(contacts)
+    update()
+
+def update():
+    for elem in tree_agenda.get_children():
+        tree_agenda.delete(elem)
+    for contact in contacts:
+        tree_agenda.insert('', 'end', values=(contact[0], contact[1], contact[2]))
+
 
 btn_add = tk.Button(win, text='Add contact', command=add)
-
 
 label_name.pack()
 input_name.pack(pady=(0, 20))
