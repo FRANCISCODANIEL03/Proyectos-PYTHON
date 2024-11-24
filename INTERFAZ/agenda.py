@@ -42,6 +42,8 @@ tree_agenda.heading('id', text='ID')
 tree_agenda.heading('name', text='NAME')
 tree_agenda.heading('phone', text='PHONE')
 
-tree_agenda.insert('', 'end', values=(1, 'name1', 'phone1'))
+tree_agenda.column('id', anchor='center')
+tree_agenda.column('name', anchor='center')
+tree_agenda.column('phone', anchor='center')
 
 win.mainloop()
