@@ -46,7 +46,15 @@ def remove_selected():
         tree_agenda.delete(selected)
     
 def update_selected():
-    pass
+    selected = tree_agenda.selection()
+    if selected:
+        name = input_name.get()
+        phone = input_phone.get()
+
+        contact = list(tree_agenda.item(selected, 'values'))
+        idx = contacts.index(contact)
+        contacts[idx] = [contact[0], name, phone]
+        update()
 
 btn_add = tk.Button(win, text='Add contact', command=add)
 btn_remove = tk.Button(win, text='Remove contact', command=remove_selected)
