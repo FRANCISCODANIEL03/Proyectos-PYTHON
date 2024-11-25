@@ -18,10 +18,15 @@ contacts = []
 def add():
     name = input_name.get()
     phone = input_phone.get()
+
     if not(name and phone):
         messagebox.showwarning('Empty field', 'You must fill out all fields')
         return
-        
+    
+    for cont in contacts:
+        if name in cont and phone in cont:
+            messagebox.showwarning('Duplicate filed', 'There is already contact with these data')
+            return
     id = len(contacts) + 1
     contacts.append([id, name, phone])
     update()
