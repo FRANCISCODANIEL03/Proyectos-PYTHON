@@ -27,7 +27,7 @@ def add():
         if name in cont and phone in cont:
             messagebox.showwarning('Duplicate filed', 'There is already contact with these data')
             return
-    id = len(contacts) + 1
+    id = str(len(contacts) + 1)
     contacts.append([id, name, phone])
     update()
 
@@ -40,8 +40,9 @@ def update():
 def remove_selected():
     selected = tree_agenda.selection()
     if selected:
+        contact = tree_agenda.item(selected, 'values')
+        contacts.remove(list(contact))
         tree_agenda.delete(selected)
-
     
 
 btn_add = tk.Button(win, text='Add contact', command=add)
@@ -51,7 +52,7 @@ label_name.pack()
 input_name.pack(pady=(0, 20))
 label_phone.pack()
 input_phone.pack(pady=(0, 20))
-btn_add.pack()
+btn_add.pack(pady=10)
 btn_remove.pack()
 tree_agenda.pack(pady=20)
 
