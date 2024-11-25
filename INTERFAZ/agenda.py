@@ -6,6 +6,7 @@ from tkinter import ttk, messagebox
 
 win = tk.Tk()
 win.geometry('600x400')
+win.wm_title('Agenda')
 
 input_name = tk.Entry(win)
 input_phone = tk.Entry(win)
